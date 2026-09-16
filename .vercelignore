@@ -1,0 +1,4 @@
+server.mjs
+data/
+.git/
+.gitignore

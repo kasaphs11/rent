@@ -120,7 +120,8 @@ const sendBookingEmail = async (record) => {
   });
 
   const responseBody = await response.json().catch(() => ({}));
-  if (!response.ok || responseBody.success === false) {
+  const providerRejected = String(responseBody.success).toLowerCase() === "false";
+  if (!response.ok || providerRejected) {
     throw new Error(responseBody.message || `FormSubmit returned ${response.status}`);
   }
 };
@@ -171,7 +172,6 @@ const serveStatic = async (request, response, pathname) => {
     ["/", join(root, "index.html")],
     ["/index.html", join(root, "index.html")],
     ["/styles.css", join(root, "styles.css")],
-    ["/app.js", join(root, "app.js")],
   ]);
   let filePath = publicFiles.get(pathname);
 
