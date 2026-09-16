@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 
 const bookingEmail = process.env.BOOKING_EMAIL || "kas11paok@gmail.com";
+const publicSiteUrl = process.env.PUBLIC_SITE_URL || "https://rent-seven-bay.vercel.app/";
 const categories = new Set([
   "Mini — Toyota Aygo ή παρόμοιο",
   "Compact — Peugeot 208 ή παρόμοιο",
@@ -58,6 +59,7 @@ const sendBookingEmail = async (record) => {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
+      Referer: publicSiteUrl,
     },
     body: JSON.stringify({
       _subject: `Νέο αίτημα κράτησης — ${record.fullName}`,
