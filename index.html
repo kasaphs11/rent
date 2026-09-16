@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ενοικίαση αυτοκινήτου στην Κω με τελική τιμή: πλήρης ασφάλεια χωρίς απαλλαγή, δεύτερος οδηγός και παράδοση στο αεροδρόμιο."
+    />
+    <meta name="theme-color" content="#0d3748" />
+    <meta property="og:title" content="Meltemi Rentals — Ό,τι βλέπεις, αυτό πληρώνεις" />
+    <meta
+      property="og:description"
+      content="Αυτοκίνητο στην Κω από 35€ τελική τιμή, χωρίς δέσμευση πιστωτικής κάρτας."
+    />
+    <meta property="og:type" content="website" />
+    <title>Meltemi Rentals | Ενοικίαση αυτοκινήτου στην Κω</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/assets/hero-kos-720.jpg" as="image" media="(max-width: 767px)" />
+    <link rel="preload" href="/assets/hero-kos-1440.jpg" as="image" media="(min-width: 768px)" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+
+    <svg class="svg-defs" aria-hidden="true">
+      <symbol id="car-shape" viewBox="0 0 280 120">
+        <path d="M42 75h10l17-33c4-8 12-13 21-13h88c10 0 19 5 25 13l21 33h15c12 0 21 9 21 21v6H20v-6c0-12 10-21 22-21Z" fill="currentColor" opacity=".94"/>
+        <path d="m88 42-14 31h57V42H88Zm57 0v31h58l-19-25a15 15 0 0 0-12-6h-27Z" fill="#f8faf7" opacity=".92"/>
+        <circle cx="72" cy="96" r="20" fill="#173647"/><circle cx="72" cy="96" r="9" fill="#e6ece9"/>
+        <circle cx="213" cy="96" r="20" fill="#173647"/><circle cx="213" cy="96" r="9" fill="#e6ece9"/>
+      </symbol>
+    </svg>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Meltemi Rentals, αρχική">
+          <svg viewBox="0 0 46 38" aria-hidden="true">
+            <path d="M4 14c7-7 14-7 21 0s14 7 18 1" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <path d="M4 25c7-7 14-7 21 0s14 7 18 1" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+          </svg>
+          <span><strong>Meltemi</strong><small>rentals · kos</small></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Κύρια πλοήγηση">
+          <a href="#compare">Η διαφορά</a>
+          <a href="#cars">Αυτοκίνητα</a>
+          <a href="#why-us">Γιατί εμείς</a>
+        </nav>
+        <a class="phone-link" href="tel:+302242012345" aria-label="Καλέστε στο +30 22420 12345">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-4-1-2 2c-4-1.7-7.3-5-9-9l2-2-1-4Z"/></svg>
+          <span>+30 22420 12345</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span></span> Τοπική ομάδα στην Κω · 4 αυτοκίνητα</p>
+            <h1>Η Κως σε περιμένει.<br /><em>Οδήγησέ την.</em></h1>
+            <p class="hero-lead">
+              Από 35€ την ημέρα — τελική τιμή. Πλήρης ασφάλεια χωρίς απαλλαγή, δεύτερος οδηγός και παράδοση στο αεροδρόμιο.
+              Χωρίς εγγύηση στην κάρτα. Χωρίς έκπληξη στο γκισέ.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#booking">Ζήτησε διαθεσιμότητα <span aria-hidden="true">→</span></a>
+              <a class="text-link" href="#compare">Δες τη σύγκριση <span aria-hidden="true">↓</span></a>
+            </div>
+            <p class="microcopy">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              Αίτημα σε 1 λεπτό · Καμία χρέωση τώρα
+            </p>
+          </div>
+
+          <div class="hero-visual">
+            <picture>
+              <source media="(min-width: 768px)" srcset="/assets/hero-kos-1440.jpg" />
+              <img
+                src="/assets/hero-kos-720.jpg"
+                width="720"
+                height="480"
+                alt="Λευκό μικρό αυτοκίνητο σε παραθαλάσσιο δρόμο της Κω"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
+          </div>
+        </div>
+
+        <div class="container trust-row" aria-label="Βασικά πλεονεκτήματα">
+          <div><strong>0€</strong><span>δέσμευση κάρτας</span></div>
+          <div><strong>0€</strong><span>απαλλαγή ασφάλειας</span></div>
+          <div><strong>δωρεάν</strong><span>παράδοση αεροδρομίου</span></div>
+          <div><strong>24/7</strong><span>τηλεφωνική υποστήριξη</span></div>
+        </div>
+      </section>
+
+      <section class="comparison section" id="compare">
+        <div class="container narrow">
+          <p class="section-kicker">Μια τίμια σύγκριση</p>
+          <h2>Μην κοιτάς την πρώτη τιμή.<br />Κοίτα την τελευταία.</h2>
+          <p class="section-intro">Το «8€ την ημέρα» και το «35€ την ημέρα» δεν περιλαμβάνουν πάντα τα ίδια. Δες ένα απλό παράδειγμα για 5 ημέρες τον Ιούλιο.</p>
+
+          <div class="receipt-grid">
+            <article class="receipt receipt-muted">
+              <div class="receipt-top">
+                <span>Χαμηλή τιμή προβολής</span>
+                <strong>«8€ / ημέρα»</strong>
+              </div>
+              <div class="receipt-lines">
+                <div><span>Βασική τιμή (5 ημέρες)</span><b>40€</b></div>
+                <div><span>Υποχρεωτική ασφάλεια</span><b>+75€</b></div>
+                <div><span>Παράδοση αεροδρομίου</span><b>+25€</b></div>
+                <div><span>Καύσιμα &amp; λοιπές χρεώσεις</span><b>~100€</b></div>
+              </div>
+              <div class="receipt-total"><span>Τελικό κόστος</span><strong>~240€</strong></div>
+              <p class="receipt-warning">+ 1.200€ δέσμευση στην πιστωτική κάρτα</p>
+            </article>
+
+            <article class="receipt receipt-meltemi">
+              <div class="best-value">Όλα μέσα</div>
+              <div class="receipt-top">
+                <span>Meltemi Rentals</span>
+                <strong>35€ / ημέρα</strong>
+              </div>
+              <div class="receipt-lines check-list">
+                <div><span>Πλήρης ασφάλεια χωρίς απαλλαγή</span><b>✓</b></div>
+                <div><span>Παράδοση &amp; παραλαβή αεροδρομίου</span><b>✓</b></div>
+                <div><span>Δεύτερος οδηγός</span><b>✓</b></div>
+                <div><span>Πολιτική καυσίμων full-to-full</span><b>✓</b></div>
+              </div>
+              <div class="receipt-total"><span>Τελικό κόστος</span><strong>175€</strong></div>
+              <p class="receipt-safe">0€ δέσμευση · 0€ επιπλέον στο γκισέ</p>
+            </article>
+          </div>
+
+          <div class="saving-callout">
+            <span class="saving-icon">€</span>
+            <p><strong>65€ λιγότερα στο τέλος.</strong> Και 1.200€ διαθέσιμα στην κάρτα σου για τις διακοπές — όχι δεσμευμένα ως εγγύηση.</p>
+          </div>
+          <p class="comparison-note">* Ενδεικτικό παράδειγμα. Οι πρόσθετες χρεώσεις διαφέρουν ανά εταιρεία και κράτηση. Πριν κλείσεις, ζήτησε πάντα το συνολικό ποσό γραπτώς.</p>
+        </div>
+      </section>
+
+      <section class="fleet section" id="cars">
+        <div class="container">
+          <div class="section-heading-row">
+            <div>
+              <p class="section-kicker">Μικρός, προσεγμένος στόλος</p>
+              <h2>Διάλεξε αυτό που σου ταιριάζει.</h2>
+            </div>
+            <p>Και στα τέσσερα, η τιμή που βλέπεις περιλαμβάνει όλα τα βασικά — χωρίς κρυφές χρεώσεις.</p>
+          </div>
+
+          <div class="car-grid">
+            <article class="car-card car-coral">
+              <div class="car-art"><span>ή παρόμοιο</span><svg viewBox="0 0 280 120" aria-hidden="true"><use href="#car-shape"/></svg></div>
+              <div class="car-content">
+                <p class="car-type">Mini · Χειροκίνητο</p>
+                <h3>Toyota Aygo</h3>
+                <div class="car-meta"><span>4 άτομα</span><span>1 βαλίτσα</span><span>A/C</span></div>
+                <div class="car-footer"><p><strong>35€</strong><span>/ ημέρα</span><small>τελική τιμή</small></p><button class="choose-car" type="button" data-car="Mini — Toyota Aygo ή παρόμοιο">Επίλεξε</button></div>
+              </div>
+            </article>
+
+            <article class="car-card car-blue">
+              <div class="car-art"><span>ή παρόμοιο</span><svg viewBox="0 0 280 120" aria-hidden="true"><use href="#car-shape"/></svg></div>
+              <div class="car-content">
+                <p class="car-type">Compact · Χειροκίνητο</p>
+                <h3>Peugeot 208</h3>
+                <div class="car-meta"><span>5 άτομα</span><span>2 βαλίτσες</span><span>A/C</span></div>
+                <div class="car-footer"><p><strong>42€</strong><span>/ ημέρα</span><small>τελική τιμή</small></p><button class="choose-car" type="button" data-car="Compact — Peugeot 208 ή παρόμοιο">Επίλεξε</button></div>
+              </div>
+            </article>
+
+            <article class="car-card car-sand">
+              <div class="car-art"><span>ή παρόμοιο</span><svg viewBox="0 0 280 120" aria-hidden="true"><use href="#car-shape"/></svg></div>
+              <div class="car-content">
+                <p class="car-type">Mini · Αυτόματο</p>
+                <h3>Hyundai i10 Auto</h3>
+                <div class="car-meta"><span>4 άτομα</span><span>1 βαλίτσα</span><span>A/C</span></div>
+                <div class="car-footer"><p><strong>48€</strong><span>/ ημέρα</span><small>τελική τιμή</small></p><button class="choose-car" type="button" data-car="Mini Automatic — Hyundai i10 ή παρόμοιο">Επίλεξε</button></div>
+              </div>
+            </article>
+
+            <article class="car-card car-green">
+              <div class="car-art"><span>ή παρόμοιο</span><svg viewBox="0 0 280 120" aria-hidden="true"><use href="#car-shape"/></svg></div>
+              <div class="car-content">
+                <p class="car-type">SUV · Χειροκίνητο</p>
+                <h3>Peugeot 2008</h3>
+                <div class="car-meta"><span>5 άτομα</span><span>3 βαλίτσες</span><span>A/C</span></div>
+                <div class="car-footer"><p><strong>62€</strong><span>/ ημέρα</span><small>τελική τιμή</small></p><button class="choose-car" type="button" data-car="SUV — Peugeot 2008 ή παρόμοιο">Επίλεξε</button></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="why section" id="why-us">
+        <div class="container why-layout">
+          <div class="why-heading">
+            <p class="section-kicker">Γιατί Meltemi</p>
+            <h2>Γιατί να κλείσεις<br />με εμάς;</h2>
+            <p>Μικρός στόλος σημαίνει ότι γνωρίζουμε κάθε αυτοκίνητο και φροντίζουμε προσωπικά κάθε κράτηση.</p>
+          </div>
+
+          <div class="reason-list">
+            <article class="reason-item">
+              <span class="check-box" aria-hidden="true">✓</span>
+              <div>
+                <h3>Ποικιλία και ποιότητα αυτοκινήτων</h3>
+                <p>Από οικονομικό mini για δύο έως άνετο SUV για όλη την παρέα. Και τα 4 αυτοκίνητά μας συντηρούνται τακτικά, ελέγχονται και καθαρίζονται πριν από κάθε παράδοση.</p>
+              </div>
+            </article>
+            <article class="reason-item">
+              <span class="check-box" aria-hidden="true">✓</span>
+              <div>
+                <h3>Ό,τι βλέπεις, αυτό πληρώνεις</h3>
+                <p>Στην τιμή περιλαμβάνονται πλήρης ασφάλεια χωρίς απαλλαγή, δεύτερος οδηγός, παράδοση και παραλαβή στο αεροδρόμιο, καύσιμα full-to-full, τηλεφωνική υποστήριξη 24/7 και καμία δέσμευση ποσού σε πιστωτική κάρτα.</p>
+              </div>
+            </article>
+            <article class="reason-item">
+              <span class="check-box" aria-hidden="true">✓</span>
+              <div>
+                <h3>Τοπική επιχείρηση στην Κω</h3>
+                <p>Μιλάς απευθείας με ανθρώπους που ζουν στο νησί. Βάζουμε πρώτα την εξυπηρέτησή σου και είμαστε διαθέσιμοι 24/7 αν μας χρειαστείς.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="booking section" id="booking">
+        <div class="container booking-grid">
+          <div class="booking-copy">
+            <p class="section-kicker light">Η Κως σε περιμένει</p>
+            <h2>Πότε θέλεις το αυτοκίνητό σου;</h2>
+            <p>Στείλε μας τις ημερομηνίες σου. Θα ελέγξουμε τον μικρό μας στόλο και θα σου απαντήσουμε με την τελική τιμή — χωρίς καμία δέσμευση.</p>
+            <ul>
+              <li><span>1</span> Συμπληρώνεις το αίτημα</li>
+              <li><span>2</span> Ελέγχουμε τη διαθεσιμότητα</li>
+              <li><span>3</span> Λαμβάνεις τελική προσφορά γραπτώς</li>
+            </ul>
+            <p class="booking-help">Προτιμάς τηλέφωνο; <a href="tel:+302242012345">+30 22420 12345</a></p>
+          </div>
+
+          <div class="form-card">
+            <div class="form-heading">
+              <span class="form-badge">Χωρίς χρέωση</span>
+              <h3>Αίτημα διαθεσιμότητας</h3>
+              <p>Τα πεδία με * είναι απαραίτητα.</p>
+            </div>
+            <form id="booking-form" action="/api/booking" method="post">
+              <div class="field full-field">
+                <label for="fullName">Ονοματεπώνυμο *</label>
+                <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="π.χ. Μαρία Παπαδοπούλου" required minlength="2" maxlength="100" />
+              </div>
+              <div class="field full-field">
+                <label for="email">Email *</label>
+                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="maria@example.com" required maxlength="160" />
+              </div>
+              <div class="field">
+                <label for="pickupDate">Παραλαβή *</label>
+                <input id="pickupDate" name="pickupDate" type="date" required />
+              </div>
+              <div class="field">
+                <label for="returnDate">Επιστροφή *</label>
+                <input id="returnDate" name="returnDate" type="date" required />
+              </div>
+              <div class="field full-field">
+                <label for="carCategory">Κατηγορία αυτοκινήτου *</label>
+                <select id="carCategory" name="carCategory" required>
+                  <option value="">Επίλεξε κατηγορία</option>
+                  <option value="Mini — Toyota Aygo ή παρόμοιο">Mini · Χειροκίνητο — 35€/ημέρα</option>
+                  <option value="Compact — Peugeot 208 ή παρόμοιο">Compact · Χειροκίνητο — 42€/ημέρα</option>
+                  <option value="Mini Automatic — Hyundai i10 ή παρόμοιο">Mini · Αυτόματο — 48€/ημέρα</option>
+                  <option value="SUV — Peugeot 2008 ή παρόμοιο">SUV · Χειροκίνητο — 62€/ημέρα</option>
+                </select>
+              </div>
+              <div class="website-field" aria-hidden="true">
+                <label for="website">Website</label>
+                <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+              <div class="form-status full-field" id="form-status" role="status" aria-live="polite"></div>
+              <button class="button button-primary submit-button full-field" type="submit">
+                <span>Έλεγχος διαθεσιμότητας</span><span aria-hidden="true">→</span>
+              </button>
+              <p class="privacy-note full-field">Με την αποστολή συμφωνείς να χρησιμοποιήσουμε τα στοιχεία σου μόνο για να απαντήσουμε σε αυτό το αίτημα.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="#top">
+            <svg viewBox="0 0 46 38" aria-hidden="true"><path d="M4 14c7-7 14-7 21 0s14 7 18 1" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M4 25c7-7 14-7 21 0s14 7 18 1" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".55"/></svg>
+            <span><strong>Meltemi</strong><small>rentals · kos</small></span>
+          </a>
+          <p>Μικρή τοπική εταιρεία ενοικίασης αυτοκινήτων στην Κω. Καθαρή τιμή, καθαρό μυαλό.</p>
+        </div>
+        <div>
+          <h3>Επικοινωνία</h3>
+          <a href="tel:+302242012345">+30 22420 12345</a>
+          <a href="mailto:hello@meltemirentals.gr">hello@meltemirentals.gr</a>
+          <span>Αεροδρόμιο Κω «Ιπποκράτης»</span>
+        </div>
+        <div>
+          <h3>Ωράριο</h3>
+          <span>Κρατήσεις: 08:00–21:00</span>
+          <span>Οδική υποστήριξη: 24/7</span>
+        </div>
+      </div>
+      <div class="container footer-bottom"><span>© <span id="year"></span> Meltemi Rentals</span><span>Ό,τι βλέπεις, αυτό πληρώνεις.</span></div>
+    </footer>
+
+    <a class="mobile-cta" href="#booking"><span>Από 35€ / ημέρα</span><strong>Διαθεσιμότητα →</strong></a>
+  </body>
+</html>
