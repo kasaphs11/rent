@@ -30,6 +30,48 @@ document.querySelectorAll(".choose-car").forEach((button) => {
   });
 });
 
+const carGrid = document.querySelector(".car-grid");
+const carCards = [...document.querySelectorAll(".car-grid .car-card")];
+const carPrevious = document.querySelector("#car-prev");
+const carNext = document.querySelector("#car-next");
+const carCurrent = document.querySelector("#car-current");
+const carTotal = document.querySelector("#car-total");
+
+if (carGrid && carCards.length) {
+  carTotal.textContent = carCards.length;
+
+  const updateCarousel = () => {
+    const activeIndex = carCards.reduce((closestIndex, card, index) => {
+      const currentDistance = Math.abs(card.offsetLeft - carGrid.scrollLeft);
+      const closestDistance = Math.abs(carCards[closestIndex].offsetLeft - carGrid.scrollLeft);
+      return currentDistance < closestDistance ? index : closestIndex;
+    }, 0);
+
+    carCurrent.textContent = activeIndex + 1;
+    carPrevious.disabled = activeIndex === 0;
+    carNext.disabled = activeIndex === carCards.length - 1;
+    return activeIndex;
+  };
+
+  const goToCar = (direction) => {
+    const activeIndex = updateCarousel();
+    const nextIndex = Math.max(0, Math.min(carCards.length - 1, activeIndex + direction));
+    carGrid.scrollTo({ left: carCards[nextIndex].offsetLeft, behavior: "smooth" });
+  };
+
+  carPrevious.addEventListener("click", () => goToCar(-1));
+  carNext.addEventListener("click", () => goToCar(1));
+
+  let scrollFrame;
+  carGrid.addEventListener("scroll", () => {
+    window.cancelAnimationFrame(scrollFrame);
+    scrollFrame = window.requestAnimationFrame(updateCarousel);
+  }, { passive: true });
+
+  window.addEventListener("resize", updateCarousel, { passive: true });
+  updateCarousel();
+}
+
 const showStatus = (type, message) => {
   formStatus.className = `form-status full-field ${type}`;
   formStatus.textContent = message;
