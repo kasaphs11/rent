@@ -252,7 +252,16 @@
               <h3>Αίτημα διαθεσιμότητας</h3>
               <p>Τα πεδία με * είναι απαραίτητα.</p>
             </div>
-            <form id="booking-form" action="/api/booking" method="post">
+            <form
+              id="booking-form"
+              action="https://formsubmit.co/kas11paok@gmail.com"
+              data-email-endpoint="https://formsubmit.co/ajax/kas11paok@gmail.com"
+              method="post"
+            >
+              <input type="hidden" name="_subject" value="Νέο αίτημα κράτησης — Meltemi Rentals" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value="https://rent-seven-bay.vercel.app/?submitted=1#booking" />
               <div class="field full-field">
                 <label for="fullName">Ονοματεπώνυμο *</label>
                 <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="π.χ. Μαρία Παπαδοπούλου" required minlength="2" maxlength="100" />
@@ -281,7 +290,7 @@
               </div>
               <div class="website-field" aria-hidden="true">
                 <label for="website">Website</label>
-                <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+                <input id="website" name="_honey" type="text" tabindex="-1" autocomplete="off" />
               </div>
               <div class="form-status full-field" id="form-status" role="status" aria-live="polite"></div>
               <button class="button button-primary submit-button full-field" type="submit">

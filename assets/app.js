@@ -58,18 +58,25 @@ bookingForm.addEventListener("submit", async (event) => {
 
   try {
     const payload = Object.fromEntries(new FormData(bookingForm).entries());
-    const response = await fetch(bookingForm.action, {
+    if (payload._honey) {
+      bookingForm.reset();
+      showStatus("success", "Το αίτημά σου καταχωρίστηκε.");
+      return;
+    }
+
+    const response = await fetch(bookingForm.dataset.emailEndpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify(payload),
     });
 
     const data = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(data.message || "Δεν ήταν δυνατή η αποστολή.");
+    const providerRejected = String(data.success).toLowerCase() === "false";
+    if (!response.ok || providerRejected) throw new Error(data.message || "Δεν ήταν δυνατή η αποστολή.");
 
     bookingForm.reset();
     returnDate.min = localToday;
-    showStatus("success", `Το αίτημά σου καταχωρίστηκε${data.requestId ? ` με κωδικό ${data.requestId.slice(0, 8)}` : ""}. Θα επικοινωνήσουμε μαζί σου σύντομα.`);
+    showStatus("success", "Το αίτημά σου στάλθηκε. Θα επικοινωνήσουμε μαζί σου σύντομα.");
     formStatus.scrollIntoView({ behavior: "smooth", block: "center" });
   } catch (error) {
     showStatus("error", `${error.message} Μπορείς επίσης να μας καλέσεις στο +30 22420 12345.`);
