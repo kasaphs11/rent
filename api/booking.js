@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 
-const bookingEmail = process.env.BOOKING_EMAIL || "stefanos.kasapis@hotmail.gr";
+const bookingEmail = process.env.BOOKING_EMAIL || "kas11paok@gmail.com";
 const categories = new Set([
   "Mini — Toyota Aygo ή παρόμοιο",
   "Compact — Peugeot 208 ή παρόμοιο",

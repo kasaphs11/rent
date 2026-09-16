@@ -10,7 +10,7 @@ const assetsDir = join(root, "assets");
 const dataDir = join(root, "data");
 const requestsFile = join(dataDir, "booking-requests.jsonl");
 const webhookUrl = process.env.BOOKING_WEBHOOK_URL;
-const bookingEmail = process.env.BOOKING_EMAIL || "stefanos.kasapis@hotmail.gr";
+const bookingEmail = process.env.BOOKING_EMAIL || "kas11paok@gmail.com";
 const categories = new Set([
   "Mini — Toyota Aygo ή παρόμοιο",
   "Compact — Peugeot 208 ή παρόμοιο",
