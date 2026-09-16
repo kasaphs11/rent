@@ -15,6 +15,7 @@ const json = (body, status = 200) =>
     headers: {
       "Cache-Control": "no-store",
       "X-Content-Type-Options": "nosniff",
+      "X-Booking-Version": "gmail-referer-v1",
     },
   });
 
@@ -106,11 +107,15 @@ export async function POST(request) {
     await sendBookingEmail(record);
   } catch (error) {
     console.error("Booking email failed:", error.message);
+    const needsActivation = /needs activation/i.test(error.message);
     return json(
       {
         ok: false,
         requestId: record.id,
-        message: "Δεν ήταν δυνατή η αποστολή του email. Δοκίμασε ξανά ή επικοινώνησε τηλεφωνικά.",
+        code: needsActivation ? "EMAIL_NOT_ACTIVATED" : "EMAIL_PROVIDER_ERROR",
+        message: needsActivation
+          ? "Η υπηρεσία email δεν έχει ενεργοποιηθεί ακόμη για αυτή τη σελίδα."
+          : "Δεν ήταν δυνατή η αποστολή του email. Δοκίμασε ξανά ή επικοινώνησε τηλεφωνικά.",
       },
       502,
     );
