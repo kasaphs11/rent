@@ -40,12 +40,16 @@ const carTotal = document.querySelector("#car-total");
 if (carGrid && carCards.length) {
   carTotal.textContent = carCards.length;
 
+  const getCardStep = () => {
+    if (carCards.length < 2) return carGrid.clientWidth;
+    return carCards[1].offsetLeft - carCards[0].offsetLeft;
+  };
+
   const updateCarousel = () => {
-    const activeIndex = carCards.reduce((closestIndex, card, index) => {
-      const currentDistance = Math.abs(card.offsetLeft - carGrid.scrollLeft);
-      const closestDistance = Math.abs(carCards[closestIndex].offsetLeft - carGrid.scrollLeft);
-      return currentDistance < closestDistance ? index : closestIndex;
-    }, 0);
+    const activeIndex = Math.max(
+      0,
+      Math.min(carCards.length - 1, Math.round(carGrid.scrollLeft / getCardStep())),
+    );
 
     carCurrent.textContent = activeIndex + 1;
     carPrevious.disabled = activeIndex === 0;
@@ -56,7 +60,7 @@ if (carGrid && carCards.length) {
   const goToCar = (direction) => {
     const activeIndex = updateCarousel();
     const nextIndex = Math.max(0, Math.min(carCards.length - 1, activeIndex + direction));
-    carGrid.scrollTo({ left: carCards[nextIndex].offsetLeft, behavior: "smooth" });
+    carGrid.scrollTo({ left: nextIndex * getCardStep(), behavior: "smooth" });
   };
 
   carPrevious.addEventListener("click", () => goToCar(-1));
