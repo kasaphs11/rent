@@ -10,6 +10,7 @@ const assetsDir = join(root, "assets");
 const dataDir = join(root, "data");
 const requestsFile = join(dataDir, "booking-requests.jsonl");
 const webhookUrl = process.env.BOOKING_WEBHOOK_URL;
+const bookingEmail = process.env.BOOKING_EMAIL || "stefanos.kasapis@hotmail.gr";
 const categories = new Set([
   "Mini — Toyota Aygo ή παρόμοιο",
   "Compact — Peugeot 208 ή παρόμοιο",
@@ -95,6 +96,35 @@ const forwardToWebhook = async (record) => {
   }
 };
 
+const sendBookingEmail = async (record) => {
+  const response = await fetch(`https://formsubmit.co/ajax/${bookingEmail}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      _subject: `Νέο αίτημα κράτησης — ${record.fullName}`,
+      _template: "table",
+      _captcha: "false",
+      _replyto: record.email,
+      "Ονοματεπώνυμο": record.fullName,
+      "Email πελάτη": record.email,
+      "Ημερομηνία παραλαβής": record.pickupDate,
+      "Ημερομηνία επιστροφής": record.returnDate,
+      "Κατηγορία αυτοκινήτου": record.carCategory,
+      "Κωδικός αιτήματος": record.id,
+      "Ημερομηνία υποβολής": record.receivedAt,
+    }),
+    signal: AbortSignal.timeout(8000),
+  });
+
+  const responseBody = await response.json().catch(() => ({}));
+  if (!response.ok || responseBody.success === false) {
+    throw new Error(responseBody.message || `FormSubmit returned ${response.status}`);
+  }
+};
+
 const handleBooking = async (request, response) => {
   const clientKey = String(request.headers["x-forwarded-for"] || request.socket.remoteAddress || "local").split(",")[0];
   if (isRateLimited(clientKey)) return sendJson(response, 429, { message: "Πολλά αιτήματα. Δοκίμασε ξανά σε λίγα λεπτά." });
@@ -114,6 +144,19 @@ const handleBooking = async (request, response) => {
   const record = { id: randomUUID(), receivedAt: new Date().toISOString(), ...result.value };
   await mkdir(dataDir, { recursive: true });
   await appendFile(requestsFile, `${JSON.stringify(record)}\n`, { encoding: "utf8", mode: 0o600 });
+
+  try {
+    await sendBookingEmail(record);
+  } catch (error) {
+    console.error("Booking email failed:", error.message);
+    return sendJson(response, 502, {
+      ok: false,
+      saved: true,
+      requestId: record.id,
+      message: "Το αίτημα αποθηκεύτηκε, αλλά δεν ήταν δυνατή η αποστολή του email. Δοκίμασε ξανά ή επικοινώνησε τηλεφωνικά.",
+    });
+  }
+
   await forwardToWebhook(record);
 
   if ((request.headers.accept || "").includes("application/json")) {
@@ -187,5 +230,6 @@ const server = createServer(async (request, response) => {
 server.listen(port, host, () => {
   console.log(`Meltemi Rentals is running at http://${host}:${port}`);
   console.log(`Booking requests are stored in ${requestsFile}`);
+  console.log(`Booking emails are sent to ${bookingEmail}`);
   if (!webhookUrl) console.log("Optional: set BOOKING_WEBHOOK_URL to forward each request to email/CRM automation.");
 });
